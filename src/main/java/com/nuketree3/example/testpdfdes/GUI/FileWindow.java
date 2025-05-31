@@ -57,7 +57,6 @@ public class FileWindow {
             }
         });
         group.getChildren().add(button);
-        group.setLayoutY(30);
         group.setLayoutX(50);
         return group;
     }
@@ -78,7 +77,6 @@ public class FileWindow {
         });
         group.getChildren().add(button);
         group.setLayoutX(width-50);
-        group.setLayoutY(30);
         return group;
     }
 
@@ -87,7 +85,6 @@ public class FileWindow {
         Button button = new Button("Back to Main Window");
         button.setOnAction(event -> application.showMainWindow());
         backToMainWindowButton.getChildren().add(button);
-        backToMainWindowButton.setLayoutY(height-10);
         backToMainWindowButton.setLayoutX((double) width / 2);
         return backToMainWindowButton;
     }
@@ -99,6 +96,7 @@ public class FileWindow {
     public StackPane getAllThings() throws IOException {
         Group group = new Group();
         group.getChildren().addAll(getLastPageButton(), getNextPageButton(), getBackToMainWindowButton());
+        group.setTranslateY(height/2.1);
         if(numberOfPage<0){
             imageView.setImage(service.getImage(service.getPDF(fileName), 0));
             numberOfPage = 0;
